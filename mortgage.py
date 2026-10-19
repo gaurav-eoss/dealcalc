@@ -5,6 +5,10 @@ class Mortgage:
     """A fixed rate Canadian Mortgage Calculator"""    
 
     def __init__(self, purchase_price: float, down_payment: float, annual_rate: float, years: int):
+
+        if purchase_price <=0:
+            raise ValueError("Purchase price must be positive")
+        
         self.purchase_price = purchase_price
         self.down_payment = down_payment
         self.annual_rate = annual_rate
@@ -20,5 +24,14 @@ class Mortgage:
 
 
 
+
+class InsuredMortgage(Mortgage):
     
+    def premium_rate(self) -> float:
+        pass
+
+    def loan_amount(self) -> float:
+        base = super().loan_amount()
+
+        return base
     
